@@ -1,0 +1,57 @@
+<!-- Display center blocks if any -->
+<{if $xoops_showcblock == 1}>
+<table cellspacing="0">
+	<tr>
+		<td id="centerCcolumn" colspan="2">
+		<!-- Start center-center blocks loop -->
+		<{foreach item=block from=$xoops_ccblocks}>
+			<{include file="cod_light/cblock_content.html"}>
+		<{/foreach}>
+		<!-- End center-center blocks loop -->
+		</td>
+	</tr>
+	<tr>
+		<td id="centerLcolumn">		
+		<!-- Start center-left blocks loop -->
+		<{foreach item=block from=$xoops_clblocks}>
+			<{include file="cod_light/cblock_content.html"}>
+		<{/foreach}>
+		<!-- End center-left blocks loop -->
+		</td>
+		<td id="centerRcolumn">		
+		<!-- Start center-right blocks loop -->
+		<{foreach item=block from=$xoops_crblocks}>
+			<{include file="cod_light/cblock_content.html"}>
+		<{/foreach}>
+		<!-- End center-right blocks loop -->
+		</td>
+	</tr>
+</table>
+<{/if}>
+<!-- End display center blocks -->
+
+<div id="content">
+	<{$xoops_contents}>
+</div>
+<center><{$xoops_banner}></center>
+<{if $xoBlocks.page_bottomleft or $xoBlocks.page_bottomright or $xoBlocks.page_bottomcenter}>
+<table cellspacing="0">
+<{if $xoBlocks.page_bottomcenter}>
+	<tr>
+		<td id="bottomCcolumn" colspan="2">
+			<{foreach from=$xoBlocks.page_bottomcenter item=block}><{include file="cod_light/cblock_content.html"}><{/foreach}>
+		</td>
+	</tr>
+<{/if}>
+<{if $xoBlocks.page_bottomleft or $xoBlocks.page_bottomright}>
+	<tr>
+		<td id="bottomLcolumn">
+			<{foreach from=$xoBlocks.page_bottomleft item=block}><{include file="cod_light/cblock_content.html"}><{/foreach}>
+		</td>
+		<td id="bottomRcolumn">
+			<{foreach from=$xoBlocks.page_bottomright item=block}><{include file="cod_light/cblock_content.html"}><{/foreach}>
+		</td>
+	</tr>
+<{/if}>
+</table>
+<{/if}>
